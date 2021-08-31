@@ -1,0 +1,36 @@
+* systemctl disable network-manager
+* feste IP vergeben
+* ifupdown, dnsmasq und net-tools installieren
+* dnsmasq und iptables konfen
+
+
+1.) Hostname setzen (falls nicht bereits geschehen)
+		sudo hostnamectl set-hostname ${neuer_hostname{.optionale_domain}}
+
+2.) Network-Manager abschalten:
+		sudo systemctl stop NetworkManager.service
+		sudo systemctl disable NetworkManager.service
+
+		sudo ssytemctl stop NetworkManager-wait-online.service
+		sudo systemctl disable NetworkManager-wait-online.service
+
+		sudo systemctl stop NetworkManager-dispatcher.service
+		sudo systemctl disable NetworkManager-dispatcher.service
+
+		sudo systemctl stop network-manager.service
+		sudo systemctl disable network-manager.service
+
+3.) feste IP vergeben
+
+
+
+4.) benötigte tools installieren:
+		• ifupdown
+		• net-tools
+		• dnsmasq
+
+# so "lala"
+cat fake-devs.txt | awk -F " " '{print $2}' | sort
+
+#funktioniert besser
+ip -br -c link show | awk -F " " '{print $1}' | grep -e "enp" | sort
